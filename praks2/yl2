@@ -1,0 +1,9 @@
+#!/bin/bash
+
+#Skript prindib välja minult küsitud küsimuste vastused ja ühe meme.
+echo "Tõnis Vaino"
+echo "IS118"
+echo "hästi"
+echo "Normaalsed muljed ning tunnen et olen edasi jõudmas"
+echo "6 päeva pärast 20 aastane"
+echo "monkaS"
