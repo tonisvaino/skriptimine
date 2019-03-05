@@ -1,0 +1,5 @@
+echo -n "Today is "
+date +"%A, %B %d, %Y"
+
+echo -n "Time is "
+date +"%H:%M"
