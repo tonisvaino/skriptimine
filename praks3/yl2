@@ -1,0 +1,7 @@
+#!/bin/bash
+#Otsin kõik failid mis lõppevad .log-iga
+#eemaldan errorid, 
+#loen kõik read üle
+#sorteerin  vastupidiselt numbrite abil listi
+find /var/ -type f -name "*.log" 2>/dev/null -exec wc -l {} \; | sort -n -r
+
