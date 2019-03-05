@@ -1,5 +1,16 @@
+#Kasutan date skriptis erinevaid parameetreid et endale vajalikus vormis saada kuupäev
+#%A lisab nädalapäeva
+#%B lisab kuu
+#%d lisab päevanumbri formaadis 0X
+#%y lisab aasta formaadis XXXX
 echo -n "Today is "
 date +"%A, %B %d, %Y"
 
-echo -n "Time is "
+#Järgmine skriptijupp prindib välja preaguse aja (date +"%H:%M" command)
+echo -n "The time is "
 date +"%H:%M"
+
+# Kasutan kalendri commandi et saada preaguse kuu kalender (tekst ei ole lined up)
+echo ""
+echo -n "Calendar of"
+cal
