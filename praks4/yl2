@@ -1,0 +1,31 @@
+#!/bin/bash
+#aluskandiku suurus (pikkus,laius)
+#kui suuri küpsiseid tahetakse
+#mitu kihti
+#mitu küpsist ühes pakis
+#=mitu pakki küpsiseid peab tulema
+#expri tuleb kasutada
+#
+#
+#Küsin kasutaja käest kõik parameetrid ära
+echo "Kui suur on tordi aluskandik?(pikkus ja laius sentimeetrites)"
+read alusepikkus aluselaius
+echo "Kui suur on üks küpsis?(cm2)"
+read kypsis
+echo "Mitu kihti on tordil?"
+read kihid
+echo "Mitu küpsist on ühes pakis?"
+read pakikypsis
+#Arvutan aluse suuruse
+alus=`expr $alusepikkus \* $aluselaius`
+#leian mitu küpsist mahub ühte kihti
+kihikypsis=`expr $alus / $kypsis`
+#Leian mitu küpsist läheb terve tordi peale kokku
+kypsiskokku=`expr $kihikypsis \* $kihid`
+#leian mitu pakki on vaja et piisav arv küpsiseid tordi jaoks saada
+pakkekokku=`expr $kypsiskokku / $pakikypsis`
+#echo "aluse suurus:"$alus
+#echo "kihis küpsiseid on:"$kihikypsis
+#echo "küpsiseid kokku:"$kypsiskokku
+#annan lõpptulemuse kasutajale teada.
+echo "Tordi jaoks peab ostma" $pakkekokku " pakki küpsiseid"
