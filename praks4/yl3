@@ -9,16 +9,16 @@ echo "Mitu kohta on bussis?"
 read bussikohad
 echo "Mitu reisijat on grupis?"
 read grupp
-if $bussikohad > $grupp
-	bussi=0
-	vaba=`$bussikohad - $grupp`
-	echo= "Bussi jääb" $vaba "kohta."
+if [ $bussikohad -gt $grupp ];then
+	vaba=`expr $bussikohad - $grupp`
+	echo "Bussi jääb" $vaba" kohta."
 else
-#Arvutan kui mitu bussi saab täielikult täis
-bussi=`expr $grupp / $bussikohad`
-#Leian mitu kohta on bussides kokku
-maxkohad=`expr $bussikohad \* $bussi`
-#Leian mitu inimest jääb bussist maha
-maha=`expr $grupp - $maxkohad`
-#annan kasutajale teada mitu bussi on täielikult täis ja mitu inimest jäi maha
-echo "Täielikult täis on" $bussi " bussi ja maha jäi " $maha "inimest."
+	#Arvutan kui mitu bussi saab täielikult täis
+	bussi=`expr $grupp / $bussikohad`
+	#Leian mitu kohta on bussides kokku
+	maxkohad=`expr $bussikohad \* $bussi`
+	#Leian mitu inimest jääb bussist maha
+	maha=`expr $grupp - $maxkohad`
+	#annan kasutajale teada mitu bussi on täielikult täis ja mitu inimest jäi maha
+	echo "Täielikult täis on" $bussi " bussi ja maha jäi " $maha "inimest."
+fi
