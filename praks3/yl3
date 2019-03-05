@@ -1,0 +1,9 @@
+#!/bin/bash
+#Hostname leidmine ja selle printimine samale reale ( $() lubab commandi kirjutada echo sisse))
+echo -n $( hostname )
+#Preaguse kellaaja leidmine
+echo -n "at " $( date +"%H:%M:%S" )
+#Leiab kui kaua arvuti on käinud
+echo -n " has been" $( uptime -p )
+#Liigutab kursori järgmisele reale et oleks lihtsam lugeda
+echo ""
