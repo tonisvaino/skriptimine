@@ -1,0 +1,6 @@
+#!/bin/bash
+#Küsin kasutaja käest tema nime ning returnin selle talle
+echo "Sisesta oma ees ja perenimi"
+#Programm ootab kahte inputi, ning alles siis läheb edasi
+read ees pere
+echo "Sinu eesnimi on $ees ja perenimi on $pere"
