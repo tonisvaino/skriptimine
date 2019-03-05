@@ -1,9 +1,13 @@
 #!/bin/bash
 #Hostname leidmine ja selle printimine samale reale ( $() lubab commandi kirjutada echo sisse))
-echo -n $( hostname )
+echo -n $(hostname)
 #Preaguse kellaaja leidmine
-echo -n "at " $( date +"%H:%M:%S" )
+echo -n " at " $(date +"%H:%M:%S")
 #Leiab kui kaua arvuti on käinud
-echo -n " has been" $( uptime -p )
+echo -n " has been" $(uptime -p)
 #Liigutab kursori järgmisele reale et oleks lihtsam lugeda
 echo ""
+
+#mihh lahendus
+#Võtad välja uptime käsust eraldi nii tunnid kui ka  minutid ning saad vahele misiganes teksti lisada 
+echo "Arvuti `hostname` on töötanud `uptime -p | cut -f1 -d"," | cut -f2 -d" "` tundi ja  `uptime -p | cut -f2 -d"," | cut -f2 -d" "` minutit!" 
