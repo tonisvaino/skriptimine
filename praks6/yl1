@@ -1,0 +1,15 @@
+#!/bin/bash
+#kasutaja arv, kas on paaris või paaritu
+
+echo -n "Sisesta suvaline täisarv: " 	#Küsin kastuaja käest arvu
+read num				#salvestan selle num alla
+#echo $num				#kontrollin kas salvestas õigesti
+j22k=$(($num %2))			#Algne $ on vaja et arvuti aru saaks et sa tahad arvutada, ja %2 tähendab et jaga kahega
+#echo $j22k				#Kontrollime kas if lause töötab õigesti ja mis
+if [ $j22k -eq 0 ]			#Kui jääk on 0 siis arv on paaris, ja kui jääk on üks on paaritu
+then
+	echo "Sissestatud arv on paaris."
+else
+	echo "Sisestatud arv on paaritu."
+fi
+#skripti lõpp
