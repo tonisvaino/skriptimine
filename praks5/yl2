@@ -1,0 +1,19 @@
+#!/bin/bash
+#Kolmnurga pindala kolme külje abil (heroni valem)
+#S=Ruutjuur(p(p-a)(p-b)(p-c)		(P on kolnurga ümbermõõt, ehk (a+b+c)/2)
+
+read -p "Kolmnurga külg a: " a
+read -p "Kolmnurga külg b: " b
+read -p "Kolmnurga külg c: " c
+
+#seletan kasutajale ära kuidas leian ning leian ümbermöödu
+echo "Kõigepealt leian kolmnurga ümbermõõdu. valemiga (a+b+c)/2"
+p=$(bc <<< "scale=2; ($a + $b + $c) /2")
+#echo $p
+echo ""
+#Jällegi seletan ära kasutajale kuidas leian ning leian
+echo "Siis leian pindala valemiga S=ruutjuur(p(p-a)(p-b)(p-c)"
+s=$(bc <<< "scale=2; sqrt( $p - ($p - $a) * ($p - $b) * ($p - $c))")
+echo ""
+#annan lõppvastuse kasutajale edasi
+echo "Kolmnurga pindala on $s cm2"
