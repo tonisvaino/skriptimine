@@ -1,0 +1,32 @@
+#!/bin/bash
+#Mitu reisijat grupis
+#kohti bussis
+#vastus: mitu bussi on täiesti täis ja mitu inimest jäävad maha
+#
+#
+#Küsin kasutaja käest mitu kohta on bussis ja mitu inimest on grupis
+echo "Mitu kohta on bussis?"
+read bussikohad
+echo "Mitu reisijat on grupis?"
+read grupp
+#kontrollin kas bussikohti on rohkem või vähem kui grupis inimesi ja vastavalt lähen edasi
+if [ $bussikohad -gt $grupp ];then
+	#Leian mitu vaba kohta tuleb ja annan info edasi kasutajale
+	vaba=`expr $bussikohad - $grupp`
+	echo "Bussi jääb" $vaba" kohta."
+else
+	#Arvutan kui mitu bussi saab täielikult täis
+	bussi=`expr $grupp / $bussikohad`
+	#Leian mitu kohta on bussides kokku
+	maxkohad=`expr $bussikohad \* $bussi`
+	#Leian mitu inimest jääb bussist maha
+	maha=`expr $grupp - $maxkohad`
+	#Kui grupis on rohkem inimesi kui bussides kokku kohti siis lisatakse üks buss juurde
+	if [ $grupp -gt $maxkohad ]
+	then
+		bussi=`expr $bussi + 1`
+	fi
+	#annan kasutajale teada mitu bussi on vaja
+	echo "Kokku on vaja $bussi bussi."
+#if lõppeb fi-ga
+fi
