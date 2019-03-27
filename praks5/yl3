@@ -1,0 +1,9 @@
+#!/bin/bash
+#Päevad on numbrid (pühapäev 0, esmaspäev 1 jne)
+#Küsin kuna ära sõidan, ning kaua ma ära olen.
+#vastama peab mis päeval ma tagasi tulen
+
+read -p "Mis päev ära sõidad?" a
+read -p "Kui kaua reisil oled?" b
+
+
