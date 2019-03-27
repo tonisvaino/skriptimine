@@ -1,0 +1,15 @@
+#!/bin/bash
+#
+
+#Küsin kasutaja käest kolmnurga külgi
+read -p "Kolmnurga küje A pikkus: " a
+read -p "Kolmurga külje B pikkus: " b
+
+#leian hüpotenuusi pikkuse ruudus
+cruut=$(bc <<< "$a * $a + $b * $b")
+#Kasutaja saab teada hüpotenuusi ruudu
+echo "Hüpotenuusi ruut on $cruut cm"
+#Hüpotenuusi ruudu ruutjuur
+c=$(bc <<< "scale=2; sqrt ( $cruut )")
+#Väljastan kasutajale  hüpotenuusi pikkuse
+echo "Hypotenuusi pikkus on $c cm"
