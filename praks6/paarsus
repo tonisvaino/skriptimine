@@ -1,0 +1,21 @@
+#!/bin/bash
+#
+
+#Kontroll kas parameetrid anti
+if [ "$1" == "" ];then
+	echo "Parameetrid puudu!"
+#Kui anti siis vaatame mis number anti ning prinditakse vastav vastus, sama nagu näites. 
+else
+	if [ $1 -eq 1 ]
+	then
+		echo "You pick up Unix (Sun Os)"
+	else
+		if [ $1 -eq 2 ]
+		then
+			echo "You pick up Linux (Red Hat)"
+		else
+			echo "What you dont like Unix/Linux OS?"
+		fi
+	fi
+fi
+#Kõigi kolme If lause lõpp (kolme erineva fi commandiga)
