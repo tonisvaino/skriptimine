@@ -1,0 +1,15 @@
+#!/bin/bash
+#kasutaja arv, kas on paaris või paaritu
+
+if [ -z "$1" ]; then
+	echo "Käsu käivitamisele lisage ka täisarv."
+else
+	jaak=$(( $1 % 2 ))
+if [ $jaak -eq 0 ];			#Kui jääk on 0 siis arv on paaris, ja kui jääk on üks on paaritu
+then
+	echo "Sisestatud arv on paaris."
+else
+	echo "Sisestatud arv on paaritu."
+fi
+fi
+#skripti lõpp
