@@ -1,0 +1,29 @@
+#!/bin/bash
+#
+# Küsi vanust kastuaja käest, ning anna kas ta on
+#0-11= laps
+#11-18= nooruk
+#18-63= täiskasvanud
+#63+ = senjoor
+#vale arvu korral käsi kasutajal oma vanus uuesti kirjutada
+
+echo -n "Sisestage oma vanus: "
+read kasutajavanus
+if [ $kasutajavanus -gt -1 ] && [ $kasutajavanus -lt 12  ];	# kontrollin  kasutaja vanust, kuna kasutan greater than ja less than siis pean panema ühe võrra suurema ja väiksema arvu et saada 0-11 skaalat, muidu tekivad probleemid kui pannakse 0 ja 11 sest siis oleks vigane sisend.
+then
+	echo "Oled laps" 					#Prindin kasutajale kes ta on, nii igas varjandis va vigases
+elif [ $kasutajavanus -gt  11 ] && [ $kasutajavanus -lt 19 ]; 	#Kontrollin kas kasutaja on 11-18 aasta vahel,  lt on 19 sest muidu 18 aastane annaks vea välja.
+then
+	echo "Oled Nooruk"
+elif [ $kasutajavanus -gt 18  ] && [ $kasutajavanus -lt 64 ];	#kontrollin kas kasutaja vanus on 18 ja 63 vahel ning kui on siis väljastan et ta on täiskasvanud
+then 
+	echo "Oled täiskasvanud"				#kõik kes on üle 63 on sejnoorid
+elif [ $kasutajavanus -gt 63 ];
+then
+	echo "oled senjoor"
+else
+	echo "Vigane/vale sisend" 				#juhul kui mitte ühtegi arvutust ei sobi teatame veast
+fi								#skripti lõpp
+
+
+
