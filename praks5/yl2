@@ -13,7 +13,7 @@ p=$(bc <<< "scale=2; ($a + $b + $c) /2")
 echo ""
 #Jällegi seletan ära kasutajale kuidas leian ning leian
 echo "Siis leian pindala valemiga S=ruutjuur(p(p-a)(p-b)(p-c)"
-s=$(bc <<< "scale=2; sqrt( $p - ($p - $a) * ($p - $b) * ($p - $c))")
+s=$(bc <<< "scale=2; sqrt( $p * ($p - $a) * ($p - $b) * ($p - $c))")
 echo ""
 #annan lõppvastuse kasutajale edasi
 echo "Kolmnurga pindala on $s cm2"
