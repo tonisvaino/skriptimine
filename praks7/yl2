@@ -1,0 +1,26 @@
+#!/bin/bash
+#Kasutaja sisestab kuu numbri
+#skript väljundab mis aastajaga on tegemist
+
+
+read -p "Sisesta kuu number: " kasutajakuu			#Võtan kasutajalt info mis kuud ta tahab
+
+if [ $kasutajakuu -gt 0 ] && [ $kasutajakuu -lt 3 ];		#kontrollin kas kuu on 1 või 2.
+then
+	echo "On talv"						#prindin välja kasutajale mis aastajal kuu on
+elif [ $kasutajakuu -gt 2 ] && [ $kasutajakuu -lt 6 ];		#kontrollin kas kasutaja sisestatud kuu on kevadkuude sees
+then
+	echo "On kevad"						#kasutajale tagasisde
+elif [ $kasutajakuu -gt 5 ] && [ $kasutajakuu -lt 9 ];		#kontrollin kas kasutajakuud on suvekuude sees
+then
+	echo "On suvi!!"					#tagasiside kastuajale
+elif [ $kasutajakuu -gt 8 ] && [ $kasutajakuu -lt 12 ];		#kontrollin kas kasutaja kuu on sügisekuude sees
+then
+	echo "On sügis"						#kasutajale tagasisde
+elif [ $kasutajakuu == 12 ];					#kontrollin kas kasutajakuu on 12
+then
+	echo "On talv!"
+else
+	echo "Kas te ei tunne numbreid?"			#juhul kui ühtegi võrradit ei vasta siis on kasutaja valesti sisestanud, ning tuleb vastav vastus 
+fi								#skripti lõpp
+
