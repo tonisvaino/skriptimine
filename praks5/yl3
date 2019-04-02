@@ -3,7 +3,9 @@
 #Küsin kuna ära sõidan, ning kaua ma ära olen.
 #vastama peab mis päeval ma tagasi tulen
 
-read -p "Mis päev ära sõidad?" a
-read -p "Kui kaua reisil oled?" b
+echo "Päevad on numbrid, pühapäev 0, esmaspäev 1, teisipäev 2 jne"
+read -p "Mis päev ära sõidad? " a
+read -p "Kui kaua reisil oled? " b
 
-
+tagasi=$(bc <<< "($a + $b)/ 7 ")
+echo "Tagasi tuled $tagasi päeval"
