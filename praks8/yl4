@@ -1,0 +1,29 @@
+#!/bin/bash
+# Kas arv on algarv või mitte
+
+read -p "Sisesta suvaline arv: " sisend					#kasutajalt sisend
+summa=0
+jagaja=2								#vajalikud muutujad enne ülesse äratada
+muutuvsisend=$sisend							#otse ei kasuta sisendit
+
+if [ $muutuvsisend -eq 0 ] || [ $muutuvsisend -eq 1 ];			#kui sisend on 0 või 1 siis kindlasti arv ei ole algarv
+then
+#	echo $muutuvsisend
+	echo "$sisend ei ole algarv"
+else
+	j22k=$(bc <<< "$muutuvsisend % $jagaja")			#Kohe jagab kahega, kui  arv jagub sellega siis skipib while loopi, sest j22k on siis 0
+	while [ $j22k != 0 ]
+	do
+		jagaja=$(bc <<< "$jagaja+1")				#jagab niikaua kui j22k on 0
+		j22k=$(bc <<< "$muutuvsisend % $jagaja")
+	done
+	if [ $muutuvsisend == $jagaja  ];				#Kontrollib kas sisend on sama mis jagaja, kui on siis on algarv, kui ei ole 
+	then
+#		echo $muutuvsisend
+		echo "$sisend on algarv"
+	else
+#		echo $muutuvsisend
+		echo "$sisend ei ole algarv"
+	fi
+fi
+#skripti lõpp
