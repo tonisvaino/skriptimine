@@ -1,0 +1,26 @@
+#!/bin/bash
+# Kas arv on algarv või mitte
+
+for (( arv=0; $arv < 21; arv++ ))				#Niikaua kui arv on väikesm kui 21 siis loop käib
+do
+	if [ $arv == 0 ] || [ $arv == 1 ];			#kui arv on 0 või 1 siis see ei ole kindlasti algarv
+	then
+		echo "$arv ei ole algarv"
+	else
+		jagaja=2					#reset jagaja, muidu ei tööta
+		j22k=$(bc <<< "$arv % $jagaja")			#jagan algselt kahega siis
+		while [ $j22k != 0 ]				#niikaua kui jääk ei võrdu 0iga siis jagab
+		do
+			jagaja=$(bc <<< "$jagaja + 1")		#jagajale lisatakse 1 juurde
+			j22k=$(bc <<< "$arv % $jagaja")		#saadakse jääk
+#			echo $j22k $jagaja			#kontroll mis millega jagatakse
+		done
+		if [ $arv == $jagaja ];				#kontroll kas arv on sama mis jagaja
+		then
+			echo "$arv on algarv"
+		else
+			echo "$arv ei ole algarv"
+		fi
+	fi
+done
+#skripti lõpp
