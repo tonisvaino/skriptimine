@@ -1,0 +1,15 @@
+#!/bin/bash
+#kasutajalt suvaline arv
+#arvu numbrid tuleb kokku liita (aka 15 ja numbrite summa on 6)
+
+read -p "Sisesta suvaline täisarv: " sisend		#kasutajalt arv
+summa=0							#summale on vaja väärtust enne kui  saame seda kastuada
+muutuvsisend=$sisend					#Kuna sisendit muuta on halb siis paneme sisendile ka teise teisenduse
+while [ $muutuvsisend != 0  ]				#Loop käib niikaua kui muutuv sisend on 0
+do
+	number=$(bc <<< "$sisend % 10")			#Viimase numbri väljundamine
+	summa=$(bc <<< "$summa+$number")		#selle lisamine summasse
+	muutuvsisend=$(bc <<< "$muutuvsisend/10")	#Ülejäänud arvude väljundamine
+done
+echo "Arvu $sisend summa on $summa"			#kasutajle vastuse andmine
+#skripti lõpp
