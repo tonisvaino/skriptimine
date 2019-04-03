@@ -1,0 +1,16 @@
+#!/bin/bash
+#Skript liidab 1 - 10 paarisarvud kokku
+
+arvutus2=0
+n=1
+for (( n=1; $n<11; n++))			#kontroll kas n on väiksem kui 11 ning peale loopi lisan nile ühe juurde.
+do
+	j22k=$(bc <<< "$n % 2")			#kas arv on paaris või mitte(kui vastuseks tuleb 0 siis on paaris)
+	if [ $j22k -eq  0 ];			#kui jääk on null siis läheb edasi
+	then
+		arvutus2=$(bc <<< "$arvutus2 + $n")	#liidan paaris arvu eelmiste paaris arvude summaga
+#		echo $arvutus2			#kontroll mida tuleb vastuseks peale igat loopi
+	fi
+done
+echo "Arvude vahemikus 1 kuni 10 paarisarvude summa on : $arvutus2"
+#skripti lõpp
