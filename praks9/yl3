@@ -21,7 +21,7 @@ echo -n "$i."				#rea number
 	then
 		for ((j = 1 ; j <= $Tulpa; j++))	#mitu tulpa
 		do
-			echo -n "*"		#Mida iganes tahad ühes reas printida
+			echo -n "* "		#Mida iganes tahad ühes reas printida
 		done
 	elif [ $i -lt $Rida ];
 	then
@@ -44,7 +44,7 @@ echo -n "$i."				#rea number
 	else
 		for ((j = 1; j<=$Tulpa; j++))			#lõppu tärnid
 		do
-			echo -n "*"
+			echo -n "* "
 		done
 	fi
 echo ""					#uus rida
