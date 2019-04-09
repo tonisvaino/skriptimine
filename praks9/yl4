@@ -1,0 +1,12 @@
+#! /bin/bash
+#
+# Read tärnidega ja samal ajal väheneveb tärnide arv 
+read -p "Sisesta ridade arv "  rida
+for (( i = 0; i < rida; i++ )) #reade tsükkel
+do
+	for (( j = 1 ; j <= rida - i; j++ )) #Tulpade tsükkel
+	do
+		echo -n "* "
+	done
+echo ""					#uus rida
+done					#skripti lõpp
