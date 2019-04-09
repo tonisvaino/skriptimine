@@ -1,0 +1,22 @@
+#! /bin/bash
+#
+#Programm väljastab täisnurkse kujundi
+
+
+ 
+read -p "Sisesta ridade arv "  rida	 	#kasutajalt info
+read -p "Sisesta tulpade arv " tulp
+for (( i=1; i <= $rida; i++ ))			#rea tsükkel
+do
+	for (( j=1 ; j <= $tulp; j++ ))		#tulpade tsükkel
+	do
+		if [ $i -eq 1 ] || [ $i -eq $rida ] || [ $j == $tulp ] || [ $j -eq 1 ]		#kui on tulba algus või lõpp siis *, muidu vahe
+		then
+			echo -n "* "
+		else
+			echo -n "  "
+		fi
+	done
+echo ""					#rea vahetus
+done					#skripti lõpp
+
