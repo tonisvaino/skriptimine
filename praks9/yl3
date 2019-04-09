@@ -1,0 +1,51 @@
+#!/bin/bash
+#progamm väljastab
+#1.*****
+#2.*   *
+#3.*   *
+#4.*   *
+#5.*****
+
+
+read -p "Mitu rida: " Rida		#Küsin kasutaja käest mitu rida ja tulpa ta tahab
+read -p "Mitu tulpa: " Tulpa
+
+r=$(bc <<< "$Rida+1")			#Lisan ainult ühe korra ühe reale juurde, et lõppu tuleksid tärnid
+
+for ((i=1; i<= $Rida; i++))		#mitu rida peab  tegema
+do
+echo -n "$i."				#rea number
+#echo "Count: $c"			#debug
+#echo "Rida: $r"			#debug
+	if [ $i == 1 ];
+	then
+		for ((j = 1 ; j <= $Tulpa; j++))	#mitu tulpa
+		do
+			echo -n "*"		#Mida iganes tahad ühes reas printida
+		done
+	elif [ $i -lt $Rida ];
+	then
+		c=1
+		while [ $c != $r ]		#iga kord kui ühe korra if lause läheb läbi läheb count ühe võrra suuremaks, siis kui lõpuks soovitud hulk ridu tehtud lõppeb
+		do
+#			echo "Rida=$Rida"
+			if [ $c == 1 ] || [ $c == $Rida ];	#kui on esimene või viimane rida
+			then
+				echo -n "*"
+				c=$(bc <<< "$c+1")		#lisan countile ühe juurde
+#				echo -n "1:$c"			#debug
+			else
+				echo -n " "			#Vahed
+				c=$(bc <<< "$c+1")
+#				echo "4:$c"			#debug
+#				echo "6:$r"			#debug
+			fi
+		done
+	else
+		for ((j = 1; j<=$Tulpa; j++))			#lõppu tärnid
+		do
+			echo -n "*"
+		done
+	fi
+echo ""					#uus rida
+done					#skripti lõpp
