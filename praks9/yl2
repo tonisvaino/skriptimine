@@ -1,0 +1,22 @@
+#!/bin/bash
+#progamm väljastab
+#1.*****
+#2.*****
+#3.*****
+#4.*****
+#5.*****
+
+
+read -p "Mitu rida: " Rida		#Küsin kasutaja käest mitu rida ja tulpa ta tahab
+read -p "Mitu tulpa: " Tulpa
+
+
+for ((i=1; i<= $Rida; i++))		#mitu rida peab  tegema
+do
+echo -n "$i."				#rea number
+	for ((j = 1 ; j <= $Tulpa; j++))	#mitu tulpa
+	do
+		echo -n "*"		#Mida iganes tahad ühes reas printida
+	done
+echo ""					#uus rida
+done					#skripti lõpp
