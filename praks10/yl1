@@ -1,0 +1,48 @@
+#!/bin/bash
+#
+#skript loob kasutaja, vastavalt kas on õpilane või õpetaja
+#loob  vajalikud kaustad ning  õigused
+#igasuguste valede väärtuste korral error
+#opetaja GID   	1002
+#opilaste GID	 1001
+
+
+if [ $(id -u) == 0 ];										#kontroll kas on root kasutajaga skript käivitatud
+then
+	read -p "kas olete õpetaja(1) või õpilane(2)?" kasutajagrupp				#kasutajalt grupp
+	if [ $kasutajagrupp == 1 ] || [ $kasutajagrupp == "õpetaja"  ];				#vastavalt sisendile annan kgruppile väärtuse
+	then
+		kgrupp="1002"
+	elif [ $kasutajagrupp == 2 ] || [ $kasutajagrupp == "õpilane" ];
+	then
+		kgrupp="1001"
+	else
+		echo "Vale sisend"								#mitteoodatava vastuse korral exit
+		exit
+	fi
+	read -p "Kasutajanimi: " kasutajanimi							#kasutajalt kasutajanimi ja parool
+	read -s -p "Parool: " kasutajaparool
+	egrep "^$kasutajanimi" /etc/passwd >/dev/null
+	if [ $? == 0 ];										#kas kasutaja on olemas juba või mitte
+	then
+		echo "Kasutaja juba olemas!"
+		exit 1
+	else
+		pass=$(perl -e 'print crypt($ARGV[0], "kasutajaparool")' $kasutajaparool)	#parooli encryptimine
+		useradd -m -p $pass -g $kgrupp -s /bin/bash $kasutajanimi			#kasutaja lisamine
+		[ $? == 0 ] && echo "Kasutaja lisatud" || echo "Error: Kasutajat ei saanud lisada"	#juhul kui läheb läbi siis kasutaja lisatud, kui ei ole siis failed
+												#kasutajale tagasiside
+		echo "Kasutajanimi: $kasutajanimi" 
+		echo "Parool: $kasutajaparool"
+		if [ $kgrupp == 1001 ];
+		then
+			echo "Grupp: Õpilane"
+		else
+			echo "Grupp: Õpetaja"
+		fi
+		echo "Kodukataloog: /home/$kasutajanimi"
+fi
+else
+	echo "Ainult root kasutajaga saab kasutajaid lisada!"
+	exit 2
+fi
